@@ -1,0 +1,16 @@
+[Unit]
+Description=Intercessory Bot (polling)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ubuntu/intercessory-bot
+EnvironmentFile=/home/ubuntu/intercessory-bot/.env
+ExecStart=/home/ubuntu/intercessory-bot/venv/bin/python3 /home/ubuntu/intercessory-bot/bot.py
+Restart=always
+RestartSec=5
+MemoryMax=150M
+
+[Install]
+WantedBy=default.target

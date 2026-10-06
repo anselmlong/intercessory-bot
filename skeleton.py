@@ -8,6 +8,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes
 
 logging.basicConfig(format="%(asctime)s %(levelname)s %(name)s: %(message)s", level=logging.INFO)
+logging.getLogger("httpx").setLevel(logging.WARNING)  # Telegram API URLs embed the bot token; don't log them
 log = logging.getLogger("intercessory")
 
 ENV_FILE = Path(__file__).parent / ".env"
